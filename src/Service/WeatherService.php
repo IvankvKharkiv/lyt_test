@@ -8,13 +8,10 @@ use App\Dto\WeatherResultDto;
 
 class WeatherService
 {
-    public function __construct(private WeatherClient $weatherClient)
-    {
-    }
+    public function __construct(private WeatherClient $weatherClient) {}
 
     public function getWeather(string $cityName): WeatherResultDto
     {
         return WeatherDataAssembler::toDto($this->weatherClient->getWeather($cityName));
     }
-
 }

@@ -7,7 +7,8 @@ use PHPUnit\Framework\TestCase;
 
 class WeatherDataAssemblerTest extends TestCase
 {
-    public function testToDto(){
+    public function testToDto()
+    {
         $weatherResponse = [
             'location' => ['name' => 'Madrid', 'country' => 'Spain'],
             'current' => [
@@ -22,5 +23,4 @@ class WeatherDataAssemblerTest extends TestCase
         $assembler = new WeatherDataAssembler();
         $assembler->toDto($weatherResponse);
     }
-
 }

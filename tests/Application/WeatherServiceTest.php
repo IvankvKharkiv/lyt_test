@@ -2,7 +2,6 @@
 
 namespace App\Tests\Application;
 
-use App\Client\WeatherClient;
 use App\Dto\WeatherResultDto;
 use App\Exception\WeatherResponseException;
 use App\Service\WeatherService;
@@ -11,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
 use Symfony\Component\HttpClient\TraceableHttpClient;
-use function PHPUnit\Framework\assertEqualsCanonicalizing;
 
 final class WeatherServiceTest extends KernelTestCase
 {

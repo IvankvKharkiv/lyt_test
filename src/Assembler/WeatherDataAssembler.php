@@ -27,14 +27,13 @@ class WeatherDataAssembler
     public static function weatherDataIsValid(array $weatherData): bool
     {
         if (
-            count(array_intersect(['location', 'current'], array_keys($weatherData))) !== 2 ||
-            count(array_intersect(['name', 'country'], array_keys($weatherData['location']))) !== 2 ||
-            count(array_intersect(['temp_c', 'condition', 'humidity', 'wind_kph', 'last_updated',], array_keys($weatherData['current']))) !== 5
+            2 !== count(array_intersect(['location', 'current'], array_keys($weatherData)))
+            || 2 !== count(array_intersect(['name', 'country'], array_keys($weatherData['location'])))
+            || 5 !== count(array_intersect(['temp_c', 'condition', 'humidity', 'wind_kph', 'last_updated'], array_keys($weatherData['current'])))
         ) {
             return false;
         }
 
         return true;
     }
-
 }

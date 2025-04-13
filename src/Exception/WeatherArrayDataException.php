@@ -2,6 +2,4 @@
 
 namespace App\Exception;
 
-use Exception;
-
-class WeatherArrayDataException extends Exception {}
+class WeatherArrayDataException extends \Exception {}
