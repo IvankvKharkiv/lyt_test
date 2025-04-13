@@ -3,6 +3,7 @@
 namespace App\Tests\Application;
 
 use App\Dto\WeatherResultDto;
+use App\Exception\WeatherArrayDataException;
 use App\Exception\WeatherResponseException;
 use App\Service\WeatherService;
 use PHPUnit\Framework\Attributes\Test;
@@ -111,6 +112,35 @@ final class WeatherServiceTest extends KernelTestCase
 
         // Act
         $this->expectException(WeatherResponseException::class);
+        $weatherService->getWeather('Madrid');
+
+        // Assert
+        $this->assertSame('GET', $mockResponse->getRequestMethod());
+        $this->assertSame('https://api.weather_test_endpoint.com/v1/current.json?key=weather_test_endpoint_key&q=Madrid', $mockResponse->getRequestUrl());
+    }
+
+    #[Test]
+    public function itShouldThrowWeatherArrayDataException(): void
+    {
+        // Arrange
+        $weatherResponse = [
+        ];
+
+        $mockResponseJson = json_encode($weatherResponse, JSON_THROW_ON_ERROR);
+
+        $mockResponse = new MockResponse($mockResponseJson, [
+            'http_code' => 201,
+            'response_headers' => ['Content-Type: application/json'],
+        ]);
+
+        $httpClient = new MockHttpClient($mockResponse, 'https://example.com');
+
+        self::getContainer()->set('Symfony\Contracts\HttpClient\HttpClientInterface', new TraceableHttpClient($httpClient));
+
+        $weatherService = self::getContainer()->get(WeatherService::class);
+
+        // Act
+        $this->expectException(WeatherArrayDataException::class);
         $weatherService->getWeather('Madrid');
 
         // Assert
