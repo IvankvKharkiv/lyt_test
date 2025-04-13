@@ -2,4 +2,6 @@
 
 namespace App\Exception;
 
-class WeatherResponseException extends \Exception {}
+use Exception;
+
+class WeatherResponseException extends Exception {}
