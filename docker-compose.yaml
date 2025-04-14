@@ -18,3 +18,11 @@ services:
     depends_on:
       - php
     container_name: nginx
+
+  weather_endpoint:
+    image: "wiremock/wiremock:latest"
+    container_name: weather_endpoint
+    volumes:
+      - ./docker/mappings/weather_endpoint:/home/wiremock/mappings
+    ports:
+      - 8383:8080

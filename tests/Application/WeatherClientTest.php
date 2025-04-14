@@ -34,7 +34,7 @@ final class WeatherClientTest extends KernelTestCase
             'response_headers' => ['Content-Type: application/json'],
         ]);
 
-        $httpClient = new MockHttpClient($mockResponse, 'https://example.com');
+        $httpClient = new MockHttpClient($mockResponse);
 
         self::getContainer()->set('Symfony\Contracts\HttpClient\HttpClientInterface', new TraceableHttpClient($httpClient));
 
@@ -64,7 +64,7 @@ final class WeatherClientTest extends KernelTestCase
             'response_headers' => ['Content-Type: application/json'],
         ]);
 
-        $httpClient = new MockHttpClient($mockResponse, 'https://example.com');
+        $httpClient = new MockHttpClient($mockResponse);
 
         self::getContainer()->set('Symfony\Contracts\HttpClient\HttpClientInterface', new TraceableHttpClient($httpClient));
 
@@ -93,7 +93,7 @@ final class WeatherClientTest extends KernelTestCase
             'response_headers' => ['Content-Type: application/json'],
         ]);
 
-        $httpClient = new MockHttpClient($mockResponse, 'https://example.com');
+        $httpClient = new MockHttpClient($mockResponse);
 
         self::getContainer()->set('Symfony\Contracts\HttpClient\HttpClientInterface', new TraceableHttpClient($httpClient));
 

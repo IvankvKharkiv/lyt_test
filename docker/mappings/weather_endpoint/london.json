@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/v1/current.json?key=weather_dev_endpoint_key&q=London"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "location": {
+        "name": "London",
+        "country": "Great Britain"
+      },
+      "current": {
+        "temp_c": 12,
+        "condition": {
+          "text": "condition"
+        },
+        "humidity": "80%",
+        "wind_kph": 25,
+        "last_updated": "2025-04-13 17:16:18"
+      }
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

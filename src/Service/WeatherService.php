@@ -11,14 +11,14 @@ class WeatherService
 {
     public function __construct(
         private WeatherClient $weatherClient,
-        private LoggerInterface $logger
+        private LoggerInterface $logger,
     ) {}
 
     public function getWeather(string $cityName): WeatherResultDto
     {
         $weatherResultDto = WeatherDataAssembler::toDto($this->weatherClient->getWeather($cityName));
 
-        $this->logger->emergency("Weather result for {$cityName}.", ['weatherData'=> $weatherResultDto]);
+        $this->logger->emergency("Weather result for {$cityName}.", ['weatherData' => $weatherResultDto]);
 
         return $weatherResultDto;
     }

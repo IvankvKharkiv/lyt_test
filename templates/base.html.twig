@@ -7,10 +7,12 @@
         {% block stylesheets %}
         {% endblock %}
 
+        <script src="https://cdn.tailwindcss.com"></script>
+
         {% block javascripts %}
         {% endblock %}
     </head>
-    <body>
+    <body class="bg-gradient-to-br from-blue-50 to-purple-100 min-h-screen flex items-center justify-center">
         {% block body %}{% endblock %}
     </body>
 </html>
